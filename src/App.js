@@ -3,7 +3,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import './App.css';
 import Header from './components/Header';
-import Footer from './components/Footer';
+import FooterWithSocialMediaIcons from './components/Footer';
 import LandingPage from './components/LandingPage';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <div>
         <Header />
         <LandingPage />
-        <Footer />
+        <FooterWithSocialMediaIcons />
       </div>
       { }
     </ThemeProvider>
