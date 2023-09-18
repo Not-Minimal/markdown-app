@@ -3,6 +3,16 @@ import { Button, Card, CardContent, CardHeader, Divider, Paper, IconButton, Box 
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { DownloadOutlined, MergeRounded } from '@mui/icons-material';
 import './LandingPage.css';
+import MarkdownPreview from '@uiw/react-markdown-preview';
+
+// Componente para mostrar la vista previa de Markdown fusionado
+const MergedMarkdownPreview = ({ markdown }) => {
+    return (
+        <div>
+            <MarkdownPreview source={markdown} />
+        </div>
+    );
+};
 
 function LandingPage() {
     const [selectedFiles, setSelectedFiles] = useState([]);
@@ -134,9 +144,9 @@ function LandingPage() {
                         />
                         <Divider />
                         <CardContent>
-                            <Paper style={{ maxHeight: '300px', overflow: 'auto' }}>
-                                {/* Mostrar el contenido de mergedMarkdown */}
-                                <pre>{mergedMarkdown}</pre>
+                            <Paper style={{ maxHeight: '500px', overflow: 'auto' }} className='markdown-preview-container'>
+                                {/* Utiliza el componente MergedMarkdownPreview para mostrar la vista previa */}
+                                <MergedMarkdownPreview markdown={mergedMarkdown} />
                             </Paper>
                         </CardContent>
                     </Card>

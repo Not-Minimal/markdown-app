@@ -9,9 +9,15 @@
 .markdown-joiner {
     background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+.markdown-preview-container {
+    text-align: left;
+    padding: 16px;
+    /* Agrega un espacio alrededor del contenido */
 }
 
 .file-upload {
@@ -30,21 +36,47 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #1976D2;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.file-upload label:hover {
+    background-color: #1565C0;
+    /* Color más oscuro al pasar el ratón */
 }
 
 .card {
     margin-top: 20px;
     padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
     background-color: #1976D2;
-    color: white;
+    color: red;
+    padding: 16px;
+    border-top-left-radius: 8px;
+    /* Esquinas redondeadas solo en la parte superior */
+    border-top-right-radius: 8px;
 }
 
 .previewer {
     max-height: 300px;
     overflow: auto;
+    padding: 8px;
+    /* Agrega un espacio alrededor del contenido */
+    border: 0px solid #ccc;
+    /* Agrega un borde para separar el contenido del contenedor */
+    border-radius: 4px;
+    background-color: blue;
 }
 
-/* Agrega estilos adicionales según sea necesario */
+/* Estilo adicional para el texto dentro de <pre> */
+.previewer pre {
+    padding: 0px;
+    /* Agrega espacio de relleno al texto dentro de <pre> */
+}
