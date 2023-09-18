@@ -16,7 +16,7 @@ const Header = () => {
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
         // Aquí puedes implementar lógica para cambiar el tema de tu aplicación
-        // por ejemplo, cambiando las clases CSS o utilizando una biblioteca de temas
+        // por ejemplo, cambiando las clases CSS o utilizando una biblioteca de tema. Prueba
     };
 
     return (
