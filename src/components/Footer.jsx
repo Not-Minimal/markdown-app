@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Footer } from 'flowbite-react';
-import { BsFacebook, BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
+import { BsGithub, BsInstagram } from 'react-icons/bs';
 
 
 export default function FooterWithSocialMediaIcons() {
@@ -14,7 +14,7 @@ export default function FooterWithSocialMediaIcons() {
                         <Footer.Brand
                             alt="Flowbite Logo"
                             href="https://flowbite.com"
-                            name="Flowbite"
+                            name="Markdown Merger"
                             src="https://flowbite.com/docs/images/logo.svg"
                         />
                     </div>
@@ -33,11 +33,11 @@ export default function FooterWithSocialMediaIcons() {
                         <div>
                             <Footer.Title title="Follow us" />
                             <Footer.LinkGroup col>
-                                <Footer.Link href="#">
-                                    Github
+                                <Footer.Link href="https://youtube.com/@NotMinimal">
+                                    Youtube
                                 </Footer.Link>
-                                <Footer.Link href="#">
-                                    Discord
+                                <Footer.Link href="https://github.com/Not-Minimal">
+                                    GitHub
                                 </Footer.Link>
                             </Footer.LinkGroup>
                         </div>
@@ -57,25 +57,17 @@ export default function FooterWithSocialMediaIcons() {
                 <Footer.Divider />
                 <div className="w-full sm:flex sm:items-center sm:justify-between">
                     <Footer.Copyright
-                        by="Flowbite™"
+                        by="Minimal Services"
                         href="#"
-                        year={2022}
+                        year={2023}
                     />
                     <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
                         <Footer.Icon
-                            href="#"
-                            icon={BsFacebook}
-                        />
-                        <Footer.Icon
-                            href="#"
+                            href="https://www.instagram.com/nottminimal/"
                             icon={BsInstagram}
                         />
                         <Footer.Icon
-                            href="#"
-                            icon={BsTwitter}
-                        />
-                        <Footer.Icon
-                            href="#"
+                            href="https://github.com/Not-Minimal"
                             icon={BsGithub}
                         />
 
