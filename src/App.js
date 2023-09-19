@@ -12,9 +12,9 @@ function App() {
       <div>
         <Header />
         <LandingPage />
-        <FooterWithSocialMediaIcons />
+
       </div>
-      { }
+      <FooterWithSocialMediaIcons />
     </ThemeProvider>
   );
 }

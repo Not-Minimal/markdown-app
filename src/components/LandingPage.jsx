@@ -115,13 +115,13 @@ function LandingPage() {
 
                 {/* Columna Vertical a la Derecha (Visualización de Markdown) */}
                 <Grid item xs={12} sm={6}>
-                    <Card sx={{ maxWidth: 800, margin: 'auto', boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)' }}>
+                    <Card sx={{ maxWidth: 800, margin: 'auto', boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)', background: '#0D1116' }}>
                         <CardHeader
                             title="Vista Previa del Markdown Fusionado"
                             sx={{ backgroundColor: '#1976D2', color: 'white' }}
                         />
                         <Divider />
-                        <CardContent sx={{ backgroundColor: '#f5f5f5', padding: '0px' }}>
+                        <CardContent sx={{ backgroundColor: '#0D1116', padding: '0px' }}>
                             <Paper style={{ maxHeight: '500px', overflowY: 'auto' }} className='markdown-preview-container'>
                                 {/* Utiliza el componente MergedMarkdownPreview para mostrar la vista previa */}
                                 <MergedMarkdownPreview markdown={mergedMarkdown} />
