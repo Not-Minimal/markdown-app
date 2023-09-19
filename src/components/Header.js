@@ -4,7 +4,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
+import DarkMode from '@mui/icons-material/DarkMode'; // Luna
+import Brightness5Icon from '@mui/icons-material/Brightness5'; // Sol
 
 import { Instagram, LinkedIn, GitHub } from '@mui/icons-material';
 
@@ -38,10 +39,10 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                 </IconButton>
                 <Button
                     color="inherit"
-                    startIcon={<Brightness4Icon />}
+                    startIcon={darkMode ? <DarkMode /> : <Brightness5Icon />} // Cambia el icono
                     onClick={toggleDarkMode}
                 >
-                    {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
+                    {darkMode ? '' : ''}
                 </Button>
             </Toolbar>
         </AppBar>
