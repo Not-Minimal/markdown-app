@@ -1,14 +1,12 @@
-// LandingPage.js
-
 import React, { useState } from 'react';
 import { Button, Card, CardContent, CardHeader, Divider, Paper, IconButton } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { DownloadOutlined } from '@mui/icons-material';
 import MarkdownPreview from '@uiw/react-markdown-preview';
-import { MergeRounded } from '@mui/icons-material';
+import { MergeRounded, PictureAsPdfRounded } from '@mui/icons-material';
 import './LandingPage.css';
 
-function PreviewSection({ mergedMarkdown, onDownloadClick, onBackClick }) {
+function PreviewSection({ mergedMarkdown, onDownloadClick, onDownloadPdfClick, onBackClick }) {
     return (
         <div className="markdown-preview-container">
             <Card>
@@ -30,7 +28,16 @@ function PreviewSection({ mergedMarkdown, onDownloadClick, onBackClick }) {
                         onClick={onDownloadClick}
                         sx={{ margin: '8px' }}
                     >
-                        Descargar
+                        Descargar Markdown
+                    </Button>
+                    <Button
+                        variant="contained"
+                        startIcon={<PictureAsPdfRounded />}
+                        color="primary"
+                        onClick={onDownloadPdfClick}
+                        sx={{ margin: '8px' }}
+                    >
+                        Descargar PDF
                     </Button>
                     <Button
                         variant="outlined"
@@ -99,6 +106,32 @@ function LandingPage() {
         window.URL.revokeObjectURL(url);
     };
 
+    const handleDownloadPdfClick = async () => {
+        if (!mergedMarkdown) {
+            alert('Por favor, fusiona archivos Markdown primero.');
+            return;
+        }
+
+        try {
+            const pdfBlob = await fetch('/api/pdf', {
+                method: 'POST',
+                body: JSON.stringify({ markdown: mergedMarkdown }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }).then((response) => response.blob());
+
+            const pdfUrl = URL.createObjectURL(pdfBlob);
+            const a = document.createElement('a');
+            a.href = pdfUrl;
+            a.download = 'merged.pdf';
+            a.click();
+            window.URL.revokeObjectURL(pdfUrl);
+        } catch (error) {
+            console.error('Error al generar el PDF:', error);
+        }
+    };
+
     const handleBackClick = () => {
         setShowPreview(false);
         setSelectedFiles([]);
@@ -111,6 +144,7 @@ function LandingPage() {
                 <PreviewSection
                     mergedMarkdown={mergedMarkdown}
                     onDownloadClick={handleDownloadClick}
+                    onDownloadPdfClick={handleDownloadPdfClick}
                     onBackClick={handleBackClick}
                 />
             ) : (
