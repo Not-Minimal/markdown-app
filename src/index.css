@@ -8,7 +8,12 @@
 } */
 
 body {
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.App {
+  text-align: center;
+  background-color: white;
 }
 
 code {

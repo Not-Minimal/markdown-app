@@ -4,6 +4,7 @@
 
 .App {
   text-align: center;
+  background-color: white;
 }
 
 .App-logo {
@@ -43,5 +44,5 @@
 }
 
 body {
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'Lato', sans-serif;
 }

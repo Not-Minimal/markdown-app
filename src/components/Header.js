@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -8,17 +8,7 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 
 import { Instagram, LinkedIn, GitHub } from '@mui/icons-material';
 
-const Header = () => {
-    // Estado para controlar el tema claro/oscuro
-    const [darkMode, setDarkMode] = useState(false);
-
-    // Función para cambiar entre temas claro y oscuro
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-        // Aquí puedes implementar lógica para cambiar el tema de tu aplicación
-        // por ejemplo, cambiando las clases CSS o utilizando una biblioteca de tema. Prueba
-    };
-
+const Header = ({ darkMode, toggleDarkMode }) => {
     return (
         <AppBar position="static">
             <Toolbar>
@@ -51,7 +41,7 @@ const Header = () => {
                     startIcon={<Brightness4Icon />}
                     onClick={toggleDarkMode}
                 >
-                    Dark Mode
+                    {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
                 </Button>
             </Toolbar>
         </AppBar>

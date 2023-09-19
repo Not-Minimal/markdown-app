@@ -1,30 +1,29 @@
 import React, { useState } from 'react';
 import { Button, Card, CardContent, CardHeader, Divider, Paper, IconButton, Box } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { DownloadOutlined } from '@mui/icons-material';
-import './LandingPage.css';
+import { MergeRounded, DownloadOutlined } from '@mui/icons-material';
 import MarkdownPreview from '@uiw/react-markdown-preview';
-import { MergeRounded } from '@mui/icons-material';
-
+import { useTheme } from '@mui/material/styles'; // Importa useTheme para acceder al tema
+import './LandingPage.css';
 
 // Nuevo componente para la sección de previsualización
 function PreviewSection({ mergedMarkdown, onDownloadClick, onBackClick }) {
+    const theme = useTheme(); // Obtiene el tema actual
+
     return (
         <div className="markdown-preview-container">
             <Card>
                 <CardHeader
                     title="Vista Previa del Markdown Fusionado"
-                    sx={{ backgroundColor: '#1976D2', color: 'white' }}
+                    sx={{ backgroundColor: theme.palette.primary.main, color: theme.palette.text.secondary }} // Usa colores del tema
                 />
                 <Divider />
                 <CardContent>
                     <Paper style={{ maxHeight: '500px', overflow: 'auto' }}>
-                        {/* Utiliza el componente MarkdownPreview para mostrar la vista previa */}
                         <MarkdownPreview source={mergedMarkdown} />
                     </Paper>
                 </CardContent>
                 <CardContent>
-                    {/* Botones en la sección de previsualización */}
                     <Button
                         variant="contained"
                         startIcon={<DownloadOutlined />}
@@ -150,33 +149,37 @@ function LandingPage() {
                 ) : (
                     // Mostrar el área de "Fusionar Archivos" y "Drag and Drop" si showPreview es false
                     <div className="markdown-joiner">
-                        <input
-                            type="file"
-                            id="file-input"
-                            multiple
-                            accept=".md"
-                            style={{ display: 'none' }}
-                            onChange={handleFileSelect}
-                        />
-                        <label htmlFor="file-input">
-                            <IconButton
+                        <div style={{ marginBottom: '16px' }}>
+                            <input
+                                type="file"
+                                id="file-input"
+                                multiple
+                                accept=".md"
+                                style={{ display: 'none' }}
+                                onChange={handleFileSelect}
+                            />
+                            <label htmlFor="file-input">
+                                <IconButton
+                                    color="primary"
+                                    aria-label="upload file"
+                                    component="span"
+                                >
+                                    <CloudUploadIcon />
+                                </IconButton>
+                                Selecciona o Arrastra tus archivos
+                            </label>
+                        </div>
+                        <div>
+                            <Button
+                                variant="outlined"
+                                startIcon={<MergeRounded />}
                                 color="primary"
-                                aria-label="upload file"
-                                component="span"
+                                onClick={handleMergeClick}
+                                sx={{ margin: '8px' }}
                             >
-                                <CloudUploadIcon />
-                            </IconButton>
-                            Selecciona o Arrastra tus archivos
-                        </label>
-                        <Button
-                            variant="outlined"
-                            startIcon={<MergeRounded />}
-                            color="primary"
-                            onClick={handleMergeClick}
-                            sx={{ marginTop: '4px', margin: '8px' }}
-                        >
-                            Fusionar Archivos
-                        </Button>
+                                Fusionar Archivos
+                            </Button>
+                        </div>
                     </div>
                 )}
             </Box>
