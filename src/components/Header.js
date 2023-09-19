@@ -5,13 +5,18 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import DarkMode from '@mui/icons-material/DarkMode'; // Luna
-import Brightness5Icon from '@mui/icons-material/Brightness5'; // Sol
+import LightMode from '@mui/icons-material/LightMode'; // Sol
 
 import { Instagram, LinkedIn, GitHub } from '@mui/icons-material';
 
 const Header = ({ darkMode, toggleDarkMode }) => {
+    const headerStyle = {
+        backgroundColor: darkMode ? '#121212' : '#FFFFFF',
+        color: darkMode ? '#FFFFFF' : '#000000',
+    };
+
     return (
-        <AppBar position="static">
+        <AppBar position="static" sx={headerStyle}>
             <Toolbar>
                 <Typography variant="h6" sx={{ flexGrow: 1 }}>
                     Markdown Merge
@@ -39,7 +44,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                 </IconButton>
                 <Button
                     color="inherit"
-                    startIcon={darkMode ? <DarkMode /> : <Brightness5Icon />} // Cambia el icono
+                    startIcon={darkMode ? <LightMode /> : <DarkMode />}
                     onClick={toggleDarkMode}
                 >
                     {darkMode ? '' : ''}

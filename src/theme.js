@@ -1,4 +1,3 @@
-// theme.js
 import { createTheme } from '@mui/material/styles';
 
 // Tema claro
@@ -104,7 +103,7 @@ const themeDark = createTheme({
         },
         text: {
             primary: '#FFFFFF', // Texto blanco en modo oscuro
-            secondary: '#B0B0B0', // Texto secundario gris en modo oscuro
+            secondary: '#888888', // Texto secundario gris en modo oscuro
         },
     },
 });
